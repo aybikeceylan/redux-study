@@ -1,7 +1,7 @@
-import { ADD_TODO } from "../types/todoTypes";
+import { ADD_TODO, CLEAR_TODO } from "../types/todoTypes";
 
 const initialState = {
-    todoList: [{ id: new Date().getTime(), text: "", completed: false }],
+    todoList: [{ id: new Date().getTime(), text: "work hard", completed: true }],
 };
 
 const todoReducer = (state = initialState, { type, payload }) => {
@@ -11,6 +11,8 @@ const todoReducer = (state = initialState, { type, payload }) => {
                 todoList: [...state.todoList,
                 { id: new Date().getTime(), text: payload, completed: false }]
             };
+        case CLEAR_TODO:
+            return initialState;
 
         default:
             return state;
